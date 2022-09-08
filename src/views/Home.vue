@@ -178,7 +178,7 @@ export default {
     focus (el, value, context) {
       if (value.value) {
         context.context.$nextTick(function () {
-          return context.context.$refs.input.focus()
+          return context.context.$refs['input'][0].focus()
         })
       }
     }
