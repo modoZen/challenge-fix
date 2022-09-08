@@ -99,8 +99,8 @@
               </template>
               <v-text-field
                 :value="todo.text"
-                @blur="doneEdit"
-                @keyup.enter="doneEdit"
+                @blur="doneEdit($event,todo)"
+                @keyup.enter="doneEdit($event,todo)"
                 @keyup.esc="cancelEdit"
                 clearable
                 color="primary"
@@ -216,9 +216,9 @@ export default {
       }
       this.newTodo = ''
     },
-    doneEdit (e) {
+    doneEdit (e, todo) {
       var value = e.target.value.trim()
-      var todo = this.todo
+      // var todo = this.todo
       if (!!!value) {
         this.removeTodo(todo)
       } else if (this.editing) {
